@@ -2,8 +2,8 @@ class Pokedex {
   constructor() {}
   static currentPokemon;
   static showFront = true;
+  static showGender = true;
   static showShiny = false;
-  static showDefault = true;
 
   static updatePokedex = (pokemon) => {
     document.querySelector(".name-screen").innerText = pokemon.name;
@@ -19,10 +19,11 @@ class Pokedex {
 
     document.querySelector(".id").innerText = idText;
 
-    const display = document.querySelector(".pokemon-img");
-    display.src = Pokedex.showFront
-      ? pokemon.front_default
-      : pokemon.back_default;
+    // const display = document.querySelector(".pokemon-img");
+    // display.src = Pokedex.showFront
+    //   ? pokemon.front_male_default
+    //   : pokemon.back_male_default;
+    this.updateView();
 
     document.querySelector(".description").innerText =
       pokemon.descriptions[pokemon.scrollIndex];
@@ -128,32 +129,45 @@ class Pokedex {
       Pokedex.currentPokemon.descriptions[--Pokedex.currentPokemon.scrollIndex];
   };
 
-  updateView = () => {
+  static updateView() {
     const display = document.querySelector(".pokemon-img");
-    const front = Pokedex.currentPokemon.front_default;
-    const back = Pokedex.currentPokemon.back_default;
-    const front_shiny = Pokedex.currentPokemon.front_shiny;
-    const back_shiny = Pokedex.currentPokemon.back_shiny;
+    const showFront = Pokedex.showFront ? "front" : "back";
+    let showGender = Pokedex.showGender ? "male" : "female";
+    const showShiny = Pokedex.showShiny ? "shiny" : "default";
+    const previousDisplay = display.src;
 
-    if (Pokedex.showFront && Pokedex.showShiny) display.src = front_shiny;
-    if (!Pokedex.showFront && Pokedex.showShiny) display.src = back_shiny;
-    if (Pokedex.showFront && !Pokedex.showShiny) display.src = front;
-    if (!Pokedex.showFront && !Pokedex.showShiny) display.src = back;
+    display.src =
+      Pokedex.currentPokemon[`${showFront}_${showGender}_${showShiny}`];
+
+    if (display.src === "http://127.0.0.1:5501/null") {
+      showGender = showGender ? false : true;
+      display.src = previousDisplay;
+    }
+  }
+
+  turnOnMale = () => {
+    Pokedex.showGender = true;
+    Pokedex.updateView();
+  };
+
+  turnOnFemale = () => {
+    Pokedex.showGender = false;
+    Pokedex.updateView();
   };
 
   toggleFront = () => {
     Pokedex.showFront = Pokedex.showFront ? false : true;
-    this.updateView();
+    Pokedex.updateView();
   };
 
   turnOnShiny = () => {
     Pokedex.showShiny = true;
-    this.updateView();
+    Pokedex.updateView();
   };
 
   turnOffShiny = () => {
     Pokedex.showShiny = false;
-    this.updateView();
+    Pokedex.updateView();
   };
 
   submitSearch = async (e) => {

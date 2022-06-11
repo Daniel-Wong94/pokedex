@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./assets/reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="pokedex-container">
+      <div class="pokedex-left">
+        <div class="circles-container">
+          <span class="circles__blue"></span>
+          <span class="circles__red"></span>
+          <span class="circles__yellow"></span>
+          <span class="circles__green"></span>
+        </div>
+        <div class="screen-container">
+          <div class="screen-container__top-circles">
+            <span class="screen-container__red-circle"></span>
+            <span class="screen-container__red-circle"></span>
+          </div>
+          <div class="image-container">
+            <img src="" alt="" class="pokemon-img" />
+            <div class="stats">
+              <div class="id">01</div>
+              <div class="gender">
+                <div >♀</div>
+                <div >♂</div>
+              </div>
+            </div>
+          </div>
+          <div class="screen-container__bottom-circles">
+            <span class="screen-container__red-circle"></span>
+            <span class="screen-container__lines"></span>
+          </div>
+        </div>
+        <div class="bottom-container">
+          <div class="name-screen">Pokemon Name</div>
+          <div class="shiny-container">
+            <input type="button" class="shiny-container__switch top"></input>
+            <input type="button" class="shiny-container__switch bottom"></input>
+          </div>
+          <div class="directional-pad">
+            <input type="button" class="up" />
+            <input type="button" class="left" />
+            <input type="button" class="right" />
+            <input type="button" class="down" />
+          </div>
+        </div>
+      </div>
+      <span class="arrow-right"></span>
+      <span class="cover">
+      </span>
+      <span class="middle-hinge"></span>
+      <div class="pokedex-right">
+        <div class="description"></div>
+        <div class="button-container">
+          <button value="0">0</button>
+          <button value="1">1</button>
+          <button value="2">2</button>
+          <button value="3">3</button>
+          <button value="4">4</button>
+          <button value="5">5</button>
+          <button value="6">6</button>
+          <button value="7">7</button>
+          <button value="8">8</button>
+          <button value="9">9</button>
+        </div>
+        <div class="black-buttons">
+          <span class="scroll-back"></span>
+          <span class="scroll-next"></span>
+        </div>
+        <div class="middle-container">
+          <div class="types-container">
+            <img src="" alt="" class="type-1">
+            <img src="" alt="" class="type-2">
+          </div>
+          <span class="yellow-circle"> </span>
+        </div>
+        <div class="specs-container">
+          <div class="height">Height: 1.5 m</div>
+          <div class="weight">Weight: 40.5 kg</div>
+        </div>
+      </div>
+    </div>
+    <!-- <script src="./script.js"></script> -->
+    <script src="./pokedex.js"></script>
+    <script src="./pokemon.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

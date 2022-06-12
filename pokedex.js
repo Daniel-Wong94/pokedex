@@ -55,7 +55,7 @@ class Pokedex {
     const [pokemonData, flavorData] = data;
 
     const { name, id, height, weight } = pokemonData;
-    const {
+    let {
       front_default,
       back_default,
       front_female,
@@ -68,6 +68,13 @@ class Pokedex {
     const types = pokemonData.types.map((type) => type.type.name);
 
     const descriptions = Pokedex.getFlavorTexts(flavorData.flavor_text_entries);
+
+    if (!front_female) {
+      front_female = front_default;
+      back_female = back_default;
+      front_shiny_female = front_shiny;
+      back_shiny_female = back_shiny;
+    }
 
     Pokedex.currentPokemon = new Pokemon(
       name,
@@ -138,11 +145,6 @@ class Pokedex {
 
     display.src =
       Pokedex.currentPokemon[`${showFront}_${showGender}_${showShiny}`];
-
-    if (display.src === "http://127.0.0.1:5501/null") {
-      showGender = showGender ? false : true;
-      display.src = previousDisplay;
-    }
   }
 
   turnOnMale = () => {

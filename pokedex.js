@@ -93,6 +93,15 @@ class Pokedex {
   };
 
   static fetchPokemon = async (id) => {
+    const display = document.querySelector(".description");
+
+    if (id <= 0 || id >= 899) {
+      display.innerHTML = `Pokemon ${id} does not exist!`;
+      setTimeout(() => {
+        Pokedex.updatePokedex(Pokedex.currentPokemon);
+      }, 1500);
+    }
+
     const pokemonAPI = `https://pokeapi.co/api/v2/pokemon/${id}/`;
     const flavorAPI = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
 
@@ -135,9 +144,8 @@ class Pokedex {
   static updateView() {
     const display = document.querySelector(".pokemon-img");
     const showFront = Pokedex.showFront ? "front" : "back";
-    let showGender = Pokedex.showGender ? "male" : "female";
+    const showGender = Pokedex.showGender ? "male" : "female";
     const showShiny = Pokedex.showShiny ? "shiny" : "default";
-    const previousDisplay = display.src;
 
     display.src =
       Pokedex.currentPokemon[`${showFront}_${showGender}_${showShiny}`];
@@ -176,15 +184,20 @@ class Pokedex {
       ).innerText = `Search for Pokemon: ${searchId}`;
     }
 
-    if (searchId.length === 3) {
-      await (() =>
-        new Promise((res, rej) =>
-          setTimeout(() => {
-            res();
-          }, 1500)
-        ))();
-      Pokedex.fetchPokemon(parseInt(searchId));
-      searchId = "";
-    }
+    if (searchId.length === 3) this.loadingScreen();
+  };
+
+  loadingScreen = async () => {
+    await (() =>
+      new Promise((res, rej) => {
+        document.querySelector(
+          ".description"
+        ).innerText = `Searching for Pokemon ${searchId} . . .`;
+        setTimeout(() => {
+          res();
+        }, 1500);
+      }))();
+    Pokedex.fetchPokemon(parseInt(searchId));
+    searchId = "";
   };
 }

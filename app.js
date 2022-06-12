@@ -40,12 +40,12 @@ const female = document.querySelector(".female");
 
 male.addEventListener("click", () => {
   pokedex.turnOnMale();
-  male.style.color = "#DE4E89";
+  male.style.color = "#092FAE";
   female.style.color = "white";
 });
 
 female.addEventListener("click", () => {
   pokedex.turnOnFemale();
   male.style.color = "white";
-  female.style.color = "#092FAE";
+  female.style.color = "#DE4E89";
 });

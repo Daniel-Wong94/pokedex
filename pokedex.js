@@ -19,10 +19,6 @@ class Pokedex {
 
     document.querySelector(".id").innerText = idText;
 
-    // const display = document.querySelector(".pokemon-img");
-    // display.src = Pokedex.showFront
-    //   ? pokemon.front_male_default
-    //   : pokemon.back_male_default;
     this.updateView();
 
     document.querySelector(".description").innerText =

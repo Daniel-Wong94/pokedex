@@ -35,7 +35,17 @@ document
   .querySelector(".bottom")
   .addEventListener("click", pokedex.turnOffShiny);
 
-document.querySelector(".male").addEventListener("click", pokedex.turnOnMale);
-document
-  .querySelector(".female")
-  .addEventListener("click", pokedex.turnOnFemale);
+const male = document.querySelector(".male");
+const female = document.querySelector(".female");
+
+male.addEventListener("click", () => {
+  pokedex.turnOnMale();
+  male.style.color = "#DE4E89";
+  female.style.color = "white";
+});
+
+female.addEventListener("click", () => {
+  pokedex.turnOnFemale();
+  male.style.color = "white";
+  female.style.color = "#092FAE";
+});

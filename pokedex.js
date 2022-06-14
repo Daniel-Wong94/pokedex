@@ -24,6 +24,9 @@ class Pokedex {
     document.querySelector(".description").innerText =
       pokemon.descriptions[pokemon.scrollIndex];
 
+    document.querySelector(".description-media").innerText =
+      pokemon.descriptions[pokemon.scrollIndex];
+
     document.querySelector(`.type-1`).src = "";
     document.querySelector(`.type-1`).alt = "";
     document.querySelector(`.type-2`).src = "";

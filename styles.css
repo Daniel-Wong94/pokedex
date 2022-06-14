@@ -7,6 +7,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -570,17 +571,7 @@ body {
   }
 
   .directional-pad {
-    /* border: 1px solid blue; */
     height: 60px;
     width: 60px;
-  }
-
-  .directional-pad input {
-    position: absolute;
-    border-radius: 50%;
-    width: calc(90% / 3);
-    height: calc(90% / 3);
-    background-color: #111111;
-    box-shadow: 2px 2px #010101;
   }
 }

@@ -52,8 +52,8 @@ body {
 .circles-container {
   display: flex;
   align-items: flex-start;
-  margin: 14px;
   align-self: flex-start;
+  margin: 14px;
 }
 
 .circles-container span {
@@ -506,6 +506,10 @@ body {
 }
 
 @media screen and (max-width: 390px) {
+  body {
+    background-image: url("https://st2.depositphotos.com/3213441/12022/v/950/depositphotos_120226584-stock-illustration-pokemon-go-pokeball-seamless-texture.jpg");
+  }
+
   .circles-container {
     margin-left: 12px;
   }

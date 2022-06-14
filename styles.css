@@ -531,7 +531,7 @@ body {
 
   .pokedex-container {
     width: 100vw;
-    gap: 4px;
+    gap: 0;
   }
 
   .screen-container {

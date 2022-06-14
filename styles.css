@@ -444,7 +444,7 @@ body {
   }
 }
 
-@media screen and (max-width: 1120px) {
+@media screen and (max-width: 1120px) and (min-width: 391px) {
   .pokedex-container {
     position: relative;
     z-index: -10;
@@ -497,5 +497,23 @@ body {
     z-index: 2;
 
     border-left: 30px solid yellow;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .pokedex-right {
+    display: none;
+  }
+
+  .middle-hinge {
+    display: none;
+  }
+
+  .pokedex-container {
+    width: 100vw;
+  }
+
+  .pokedex-left {
+    /* width: 100vw; */
   }
 }

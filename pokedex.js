@@ -36,9 +36,9 @@ class Pokedex {
     }
   };
 
-  static getFlavorTexts = (flavorObj) => {
+  static getFlavorTexts = (flavorArr) => {
     const texts = [];
-    flavorObj.forEach((flavor) => {
+    flavorArr.forEach((flavor) => {
       if (flavor.language.name === "en" && flavor.flavor_text) {
         texts.push(flavor.flavor_text.replaceAll("\n", " "));
       }

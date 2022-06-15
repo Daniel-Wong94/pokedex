@@ -11,7 +11,11 @@ const audioLinks = [
 const feedbackSound = document.getElementById("feedback-audio");
 
 document.querySelector(".up").addEventListener("mousedown", () => {
-  feedbackSound.play();
+  if (feedbackSound.paused) {
+    feedbackSound.play();
+  } else {
+    feedbackSound.currentTime = 0;
+  }
 });
 
 const audioTag = document.getElementById("bg-audio");

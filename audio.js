@@ -8,13 +8,19 @@ const audioLinks = [
   "https://vgmsite.com/soundtracks/pokemon-gameboy-sound-collection/eyuaeomq/133-celadon%20city.mp3",
 ];
 
-const audioTag = document.querySelector("audio");
+const feedbackSound = document.getElementById("feedback-audio");
+
+document.querySelector(".up").addEventListener("mousedown", () => {
+  feedbackSound.play();
+});
+
+const audioTag = document.getElementById("bg-audio");
 
 const playNext = () => {
   const randomAudioIndex = Math.floor(Math.random() * audioLinks.length);
   const randomAudio = audioLinks[randomAudioIndex];
   const songName = randomAudio.split("-").slice(-1);
-  console.log("playing next: ", decodeURI(songName));
+  console.log("playing now: ", decodeURI(songName));
   audioTag.src = randomAudio;
 };
 
@@ -23,4 +29,7 @@ audioTag.addEventListener("ended", (e) => {
   playNext();
 });
 
-window.onload = playNext;
+window.onload = () => {
+  audioTag.src = "https://www.myinstants.com/media/sounds/pc-on.mp3";
+  playNext();
+};

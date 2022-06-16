@@ -10,7 +10,7 @@ const audioLinks = [
 
 const feedbackSound = document.getElementById("feedback-audio");
 
-document.querySelector(".up").addEventListener("mousedown", () => {
+document.querySelector(".up").addEventListener("click", () => {
   if (feedbackSound.paused) {
     feedbackSound.play();
   } else {
@@ -19,6 +19,8 @@ document.querySelector(".up").addEventListener("mousedown", () => {
 });
 
 const audioTag = document.getElementById("bg-audio");
+audioTag.volume = 0.01;
+feedbackSound.volume = 0.01;
 
 const playNext = () => {
   const randomAudioIndex = Math.floor(Math.random() * audioLinks.length);
@@ -33,7 +35,7 @@ audioTag.addEventListener("ended", (e) => {
   playNext();
 });
 
-window.onload = () => {
-  audioTag.src = "https://www.myinstants.com/media/sounds/pc-on.mp3";
-  playNext();
-};
+// window.onload = () => {
+// audioTag.src = "https://www.myinstants.com/media/sounds/pc-on.mp3";
+// playNext();
+// };
